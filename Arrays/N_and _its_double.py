@@ -16,11 +16,11 @@ Output: false
 
 class Solution:
     def checkIfExist(self, arr) -> bool:
-        double = set()
-        for i in range(len(arr)):
-            if 2*arr[i] in double:
+        seen = set()
+        for i in arr:
+            if 2 * i in seen or i / 2 in seen:
                 return True
-            double.add(arr[i])
+            seen.add(i)
         return False
 
 print(Solution().checkIfExist([10,2,5,3]))
